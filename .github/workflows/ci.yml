@@ -36,7 +36,7 @@ jobs:
           file: ./application/Dockerfile
           push: true
           # tags: it is resposible to creating new docker repository with name as below given format          
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flask_img:latest
 
       - name: Build and push nginx
         id: docker_build_nginx
@@ -46,7 +46,7 @@ jobs:
           file: ./nginx/Dockerfile
           push: true
           # tags: it is resposible to creating new docker repository with name as below given format          
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/nginx_img:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
