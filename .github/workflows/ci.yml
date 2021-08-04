@@ -21,7 +21,10 @@ jobs:
 #         depends_on: db
         ports:
           - "8081:8081"
-              
+    steps:
+      - name: running mongo-express
+        run: http://localhost:8081
+    
 #     steps:
 
 #       - name: Check Out Repo 
