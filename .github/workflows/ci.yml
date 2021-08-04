@@ -34,7 +34,7 @@ jobs:
           context: ./
           file: ./application/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/cicdsample:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
