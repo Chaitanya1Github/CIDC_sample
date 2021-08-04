@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./application/Dockerfile, ./nginx/Dockerfile          
+          files: ./application/Dockerfile
           push: true
           # tags: it is resposible to creating new docker repository with name as below given format          
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
