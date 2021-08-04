@@ -5,8 +5,8 @@ name: CI to Docker Hub
 
 
 on:
-#   push:
-#     branches: [ master ]
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./application/Dockerfile
+          file: ./application/Dockerfile, ./nginx/Dockerfile          
           push: true
           # tags: it is resposible to creating new docker repository with name as below given format          
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
