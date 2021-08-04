@@ -28,12 +28,22 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Build and push
-        id: docker_build
+      - name: Build and push application
+        id: docker_build_application
         uses: docker/build-push-action@v2
         with:
           context: ./
-          files: ./application/Dockerfile
+          file: ./application/Dockerfile
+          push: true
+          # tags: it is resposible to creating new docker repository with name as below given format          
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
+
+      - name: Build and push nginx
+        id: docker_build_nginx
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./nginx/Dockerfile
           push: true
           # tags: it is resposible to creating new docker repository with name as below given format          
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mycicdsample:latest
